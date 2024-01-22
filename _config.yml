@@ -1,9 +1,9 @@
-title: SParK
+title: Spark
 description: CSA Big Project
-owner_name: SParK
-github_username: paravsalaniwal
-github_repo: "SParK"
-baseurl: "/SParK"
+owner_name: SparkWizards
+github_username: SparkWizards
+github_repo: "spark"
+baseurl: "/spark"
 remote_theme: jekyll/minima
 minima:
   social_links:
