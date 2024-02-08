@@ -1,9 +1,8 @@
 ---
 layout: page
-title: About Me
+title: About Us
 permalink: /about/
 ---
 
-A Fastpages clone, for CSA - Tirth Thakkar & Haseeb Beg
 
 
