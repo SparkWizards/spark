@@ -6,156 +6,120 @@ permalink: account
 
 <div class="student-profile py-4">
     <div class="container">
-      <div class="row">
-          <div class="card shadow-sm">
-            <div class="card-header bg-transparent text-center">
-              <h1>Welcome Spark Admin</h1>
+        <div class="row">
+            <div class="card shadow-sm">
+                <div class="card-header bg-transparent text-center">
+                    <h1>Spark Admin</h1>
+                </div>
+                <div class="card-body">
+                    <p class="mb-0"><strong class="pr-1">Student ID:</strong><span value="id" id="student-id">23</span></p>
+                    <p class="mb-0"><strong class="pr-1">Student Name:</strong>Nikola Tesla</p>
+                    <p class="mb-0"><strong class="pr-1">School:</strong>Del Norte HS</p>
+                </div>
             </div>
-            <div class="card-body">
-              <p class="mb-0"><strong class="pr-1">Student ID:</strong>NUMBERS</p>
-              <p class="mb-0"><strong class="pr-1">Grade:</strong>11</p>
-              <p class="mb-0"><strong class="pr-1">School:</strong>Del Norte HS</p>
-            </div>
-          </div>
         </div>
         <div class="col-lg-8">
-          <div class="card shadow-sm">
-            <div class="card-header bg-transparent border-0">
-              <h3 class="mb-0"></i>General Information</h3>
+            <div class="card shadow-sm">
+                <div class="card-header bg-transparent border-0">
+                    <h3 class="mb-0"></i>General Information</h3>
+                </div>
+                <div class="card-body pt-0">
+                    <table align="center" id="classSchedule">
+                        <tr>
+                            <th>Period 1</th>
+                            <td><select id="period1">
+                                <option value="null">---Select---</option>
+                                <option value="stats">AP Stats</option>
+                                <option value="csa">APCSA</option>
+                                <option value="csp">APCSP</option>
+                                <option value="csse">CSSE</option>
+                                <option value="apes">APES</option>
+                                <option value="bio">AP Bio</option>
+                                <option value="calcab">AP Calc AB</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <th>Period 2</th>
+                            <td><select id="period2">
+                                <option value="null">---Select---</option>
+                                <option value="stats">AP Stats</option>
+                                <option value="csa">APCSA</option>
+                                <option value="csp">APCSP</option>
+                                <option value="csse">CSSE</option>
+                                <option value="apes">APES</option>
+                                <option value="bio">AP Bio</option>
+                                <option value="calcab">AP Calc AB</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <th>Period 3</th>
+                            <td><select id="period3">
+                                <option value="null">---Select---</option>
+                                <option value="stats">AP Stats</option>
+                                <option value="csa">APCSA</option>
+                                <option value="csp">APCSP</option>
+                                <option value="csse">CSSE</option>
+                                <option value="apes">APES</option>
+                                <option value="bio">AP Bio</option>
+                                <option value="calcab">AP Calc AB</option>
+                            </select></td>
+                        </tr>                        
+                        <tr>
+                            <th>Period 4</th>
+                            <td><select id="period4">
+                                <option value="null">---Select---</option>
+                                <option value="stats">AP Stats</option>
+                                <option value="csa">APCSA</option>
+                                <option value="csp">APCSP</option>
+                                <option value="csse">CSSE</option>
+                                <option value="apes">APES</option>
+                                <option value="bio">AP Bio</option>
+                                <option value="calcab">AP Calc AB</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <th>Period 5</th>
+                            <td><select id="period5">
+                                <option value="null">---Select---</option>
+                                <option value="stats">AP Stats</option>
+                                <option value="csa">APCSA</option>
+                                <option value="csp">APCSP</option>
+                                <option value="csse">CSSE</option>
+                                <option value="apes">APES</option>
+                                <option value="bio">AP Bio</option>
+                                <option value="calcab">AP Calc AB</option>
+                                <!-- Add more options as needed -->
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <th>Clubs</th>
+                            <td>DECA, Robotics, Speech and Debate</td>
+                        </tr>
+                    </table>
+                    <button onclick="submitSchedule()">Submit Schedule</button>
+                </div>
             </div>
-            <div class="card-body pt-0">
-              <table align="center">
-                <tr>
-                  <th>Period 1</th>
-                  <td>                    <select>        
-                    <option>CSP</option>
-                    <option>CSA</option>
-                    <option>CSSE</option>
-                    <option>Calc AB</option>
-                    <option>Calc BC</option>
-                    <option>APES</option>
-                    <option>AP Bio</option>
-                    <option>AP Chem</option>
-                    <option>AP Physics Mech</option>
-                    <option>AP Physics E&M</option>
-                    <option>Photo</option>
-                    <option>DMM</option>
-                    <option>APHUG</option>
-                    <option>AP Psychology</option>
-                    <option>Offroll</option>
-               </select></td>
-                </tr>
-                <tr>
-                  <th>Period 2</th>
-                  <td>       
-                    <select>        
-                    <option>CSSE</option>
-                    <option>CSA</option>
-                    <option>CSP</option>
-                    <option>Calc AB</option>
-                    <option>Calc BC</option>
-                    <option>APES</option>
-                    <option>AP Bio</option>
-                    <option>AP Chem</option>
-                    <option>AP Physics Mech</option>
-                    <option>AP Physics E&M</option>
-                    <option>Photo</option>
-                    <option>DMM</option>
-                    <option>APHUG</option>
-                    <option>AP Psychology</option>
-                    <option>Offroll</option>
-               </select>
-            </td>
-                </tr>
-                <tr>
-                  <th>Period 3</th>
-                  <td>                    <select>        
-                    <option>CSA</option>
-                    <option>CSP</option>
-                    <option>CSSE</option>
-                    <option>Calc AB</option>
-                    <option>Calc BC</option>
-                    <option>APES</option>
-                    <option>AP Bio</option>
-                    <option>AP Chem</option>
-                    <option>AP Physics Mech</option>
-                    <option>AP Physics E&M</option>
-                    <option>Photo</option>
-                    <option>DMM</option>
-                    <option>APHUG</option>
-                    <option>AP Psychology</option>
-                    <option>Offroll</option>
-               </select></td>
-                </tr>
-                <tr>
-                  <th>Period 4</th>
-                  <td>                    <select>        
-                    <option>Calc AB</option>
-                    <option>CSA</option>
-                    <option>CSSE</option>
-                    <option>Calc AB</option>
-                    <option>CSP</option>
-                    <option>APES</option>
-                    <option>AP Bio</option>
-                    <option>AP Chem</option>
-                    <option>AP Physics Mech</option>
-                    <option>AP Physics E&M</option>
-                    <option>Photo</option>
-                    <option>DMM</option>
-                    <option>APHUG</option>
-                    <option>AP Psychology</option>
-                    <option>Offroll</option>
-               </select></td>
-                </tr>
-                <tr>
-                  <th>Period 5</th>
-                  <td>                    <select>        
-                    <option>Offroll</option>
-                    <option>CSA</option>
-                    <option>CSSE</option>
-                    <option>Calc AB</option>
-                    <option>Calc BC</option>
-                    <option>APES</option>
-                    <option>AP Bio</option>
-                    <option>AP Chem</option>
-                    <option>AP Physics Mech</option>
-                    <option>AP Physics E&M</option>
-                    <option>Photo</option>
-                    <option>DMM</option>
-                    <option>APHUG</option>
-                    <option>AP Psychology</option>
-                    <option>CSP</option>
-               </select></td>
-                </tr>
-                <tr>
-                    <th>Clubs</th>
-                    <td>DECA, Robotics, Speech and Debate</td>
-                  </tr>
-              </table>
             </div>
-          </div>
-            <div style="height: 26px"></div>
-          <div class="card shadow-sm">
-            <div class="card-header bg-transparent border-0">
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  <style>
+</div>
+
+<style>
     body {
-        background: #67B26F;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to top, #CC5500, #000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: #67B26F; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to top, #CC5500, #000);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         padding: 0;
         margin: 0;
         font-family: 'Lato', sans-serif;
         color: #000;
     }
+
     .student-profile .card {
         border-radius: 10px;
     }
+
     .student-profile .card .card-header .profile_img {
         width: 150px;
         height: 150px;
@@ -164,27 +128,81 @@ permalink: account
         border: 10px solid #ccc;
         border-radius: 50%;
     }
+
     .student-profile .card h3 {
         font-size: 20px;
         font-weight: 700;
     }
+
     .student-profile .card p {
         font-size: 16px;
         color: #fff;
     }
-    .student-profile .table th,.student-profile .table td {
+
+    .student-profile .table th,
+    .student-profile .table td {
         font-size: 14px;
         padding: 5px 10px;
         color: #000;
     }
-    h1,p,h3,table{
+
+    h1,
+    p,
+    h3,
+    table {
         text-align: center;
     }
+
     .center {
         margin-left: auto;
         margin-right: auto;
-      }
-    th,td {
+    }
+
+    th,
+    td {
         background: linear-gradient(to center, #CC5500, #000)
     }
-  </style>
+    div.container{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<script>
+    function submitSchedule() {
+        const id = "23"; // The ID of the person you want to update
+        const date = "2024-02-07"; // The date for the stats update
+        const period1 = document.getElementById('period1').value;
+        const period2 = document.getElementById('period2').value;
+        const period3 = document.getElementById('period3').value;
+        const period4 = document.getElementById('period4').value;
+        const period5 = document.getElementById('period5').value;
+
+        const stats = {
+            id: id,
+            date: date,
+            period1: period1,
+            period2: period2,
+            period3: period3,
+            period4: period4,
+            period5: period5
+        };
+
+        fetch('http://localhost:8098/api/person/setStats', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(stats)
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle response if needed
+            console.log(data);
+        })
+        .catch(error => console.error('Error updating schedule:', error));
+    }
+</script>
+

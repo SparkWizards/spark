@@ -84,46 +84,87 @@ layout: base
 
 <style>
   body {
-      background: #67B26F;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);  /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to top, #CC5500, #000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: #000; /* Dark background */
       padding: 0;
       margin: 0;
-      font-family: 'Lato', sans-serif;
-      color: #000;
+      font-family: 'Arial', sans-serif; /* Cyberpunk font */
+      color: #9ACD32; /* Neon green text */
   }
   .student-profile .card {
-      border-radius: 10px;
+      border-radius: 20px; /* Rounded corners */
+      box-shadow: 0 0 20px rgba(154, 205, 50, 0.5); /* Neon green shadow */
+      background: #212121; /* Darker card background */
+      padding: 20px; /* Padding inside the card */
   }
   .student-profile .card .card-header .profile_img {
-      width: 150px;
-      height: 150px;
+      width: 200px; /* Larger profile image */
+      height: 200px;
       object-fit: cover;
-      margin: 10px auto;
-      border: 10px solid #ccc;
+      margin: 20px auto; /* More margin */
+      border: 10px solid #9ACD32; /* Neon green border */
       border-radius: 50%;
+      box-shadow: 0 0 20px rgba(154, 205, 50, 0.5); /* Glowing effect */
   }
   .student-profile .card h3 {
-      font-size: 20px;
-      font-weight: 700;
+      font-size: 24px; /* Bigger heading */
+      font-weight: 900; /* Bold */
+      text-transform: uppercase; /* Uppercase text */
+      margin-bottom: 10px; /* More margin */
+      color: #FF1493; /* Neon pink heading */
   }
   .student-profile .card p {
-      font-size: 16px;
-      color: #fff;
+      font-size: 18px; /* Larger text */
+      color: #9ACD32; /* Neon green text */
   }
   .student-profile .table th,.student-profile .table td {
-      font-size: 14px;
-      padding: 5px 10px;
-      color: #000;
+      font-size: 16px; /* Larger table text */
+      padding: 10px 20px; /* More padding */
+      color: #9ACD32; /* Neon green text */
   }
-  h1,p,h3,table{
-      text-align: center;
+  h1,p,h3,table {
+      text-align: center; /* Centered text */
+      color: #FF1493; /* Neon pink text */
   }
   .center {
       margin-left: auto;
       margin-right: auto;
-    }
-  th,td {
-      background: linear-gradient(to center, #CC5500, #000)
+  }
+  th, td {
+      background: linear-gradient(to right, #FFA500, #FF6347); /* Gradient background */
+      border: 2px solid #9ACD32; /* Neon green border */
+      border-radius: 10px; /* Rounded border */
+      box-shadow: 0 0 10px rgba(154, 205, 50, 0.5); /* Glowing effect */
+  }
+  input {
+      background-color: #212121; /* Darker input background */
+      color: #9ACD32; /* Neon green text */
+      border: 2px solid #9ACD32; /* Neon green border */
+      border-radius: 10px; /* Rounded border */
+      padding: 10px; /* Padding */
+      font-size: 16px; /* Larger font size */
+      box-shadow: 0 0 10px rgba(154, 205, 50, 0.5); /* Glowing effect */
+      transition: all 0.3s ease; /* Smooth transition */
+  }
+  input:focus {
+      outline: none; /* No outline on focus */
+      border-color: #FF1493; /* Neon pink border on focus */
+      box-shadow: 0 0 20px rgba(255, 20, 147, 0.5); /* Glowing effect on focus */
+  }
+  button {
+      background-color: #FF6347; /* Coral button background */
+      color: #fff; /* White text */
+      border: none; /* No border */
+      border-radius: 50px; /* Rounder shape */
+      padding: 15px 30px; /* Padding */
+      font-size: 18px; /* Larger font size */
+      cursor: pointer; /* Cursor style */
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Glowing effect */
+      transition: all 0.3s ease; /* Smooth transition */
+  }
+  button:hover {
+      background-color: #FF4500; /* Darker coral on hover */
+  }
+  button:active {
+      transform: scale(0.95); /* Button scale on click */
   }
 </style>
