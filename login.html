@@ -1,0 +1,65 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+
+<div class="login-container">
+    <div class="card">
+        <h3>Login</h3>
+        <div class="Email">
+            <input id="Emaillogin" class="input" placeholder="Email">
+        </div>
+        <div class="Password">
+            <input id="PasswordLogin" type="password" class="input" placeholder="Password">
+        </div>
+        <div class="Buttons">
+            <button class="LoginB" onclick="person_login()">Login</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function person_login() {
+        const email = document.getElementById("Emaillogin").value;
+        const password = document.getElementById("PasswordLogin").value;
+
+        const requestOptions = {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: email, password: password })
+        };
+
+        fetch('http://localhost:8098/authenticate', requestOptions)
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(errorMsg => {
+                    alert('Error: ' + errorMsg);
+                });
+            }
+
+            alert("Login successful");
+            location.reload(); // Reload the page or navigate to another page upon successful login
+        })
+        .catch(error => {
+            alert('An unexpected error occurred: ' + error.message);
+        });
+    }
+</script>
+
+</body>
+</html>
+
