@@ -36,8 +36,8 @@ permalink: create-account
         <div class="Dob">
             <input id="signUpDobInput" class="input" placeholder="Date of birth (MM-DD-YYYY)">
         </div>
-        <div class="Stats">
-            <input id="signUpStatsInput" class="input" placeholder="Period 1 Class">
+        <div class="Grade">
+            <input id="signUpGradeInput" class="input" placeholder="Grade Level (9-12)">
         </div>
         <div class="Buttons">
             <button class="signUpButton" onclick="person_signup()">Sign Up</button>
@@ -49,6 +49,7 @@ permalink: create-account
 <script>
 
     function person_signup() {
+        
         var requestOptions = {
             method: 'POST',
             mode: 'cors',
@@ -60,9 +61,16 @@ permalink: create-account
         let fetchEmail = document.getElementById("signUpEmailInput").value;
         let fetchPassword = document.getElementById("signUpPasswordInput").value;
         let fetchDob = document.getElementById("signUpDobInput").value;
-        let fetchStats = document.getElementById("signUpStatsInput").value;
+        let fetchGrade = document.getElementById("signUpGradeInput").value;
 
-        let requestURL = `http://localhost:8098/api/person/post?email=${fetchEmail}&password=${fetchPassword}&name=${fetchName}&dob=${fetchDob}&stats=${fetchStats}`;
+        console.log("Email:", fetchEmail);
+        console.log("Password:", fetchPassword);
+        console.log("Name:", fetchName);
+        console.log("DOB:", fetchDob);
+        console.log("Grade:", fetchGrade);
+        
+
+        let requestURL = `http://localhost:8098/api/person/post?email=${fetchEmail}&password=${fetchPassword}&name=${fetchName}&dob=${fetchDob}&grade=${fetchGrade}`;
         console.log(requestURL)
 
         fetch(requestURL, requestOptions)
@@ -70,6 +78,7 @@ permalink: create-account
                 if (!response.ok) {
                     return response.text().then(errorMsg => {
                         alert('Error: ' + errorMsg);
+                        console.log(requestOptions)
                     });
                 }
     
@@ -129,7 +138,7 @@ permalink: create-account
         })
         .then(result => {
             console.log(result);
-            window.location.href = "http://127.0.0.1:4100/spark/login-success";
+            window.location.href = "http://127.0.0.1:4100/spark/account";
         })
         .catch(error => console.error('Error during login:', error));
 

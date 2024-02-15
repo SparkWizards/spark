@@ -9,12 +9,11 @@ permalink: account
         <div class="row">
             <div class="card shadow-sm">
                 <div class="card-header bg-transparent text-center">
-                    <h1>Spark Admin</h1>
+                    <h1 value="name">Nikola Tesla</h1>
                 </div>
                 <div class="card-body">
-                    <p class="mb-0"><strong class="pr-1">Student ID:</strong><span value="id" id="student-id">23</span></p>
-                    <p class="mb-0"><strong class="pr-1">Student Name:</strong>Nikola Tesla</p>
-                    <p class="mb-0"><strong class="pr-1">School:</strong>Del Norte HS</p>
+                    <p class="mb-0"><strong class="pr-1">Student ID:</strong></p><p>23</p>
+                    <p class="mb-0"><strong class="pr-1">Grade Level:</strong></p><p id="grade"></p>
                 </div>
             </div>
         </div>
@@ -171,6 +170,17 @@ permalink: account
 </style>
 
 <script>
+    
+    fetch('http://localhost:8098/api/person/23')
+    .then(response => response.json())
+    .then(data => {
+        // Extract the grade value
+        const grade = data.grade;
+        // Update the HTML element with the fetched grade
+        document.getElementById('grade').textContent = grade;
+    })
+    .catch(error => console.error('Error fetching user data:', error));
+    
     function submitSchedule() {
         const id = "23"; // The ID of the person you want to update
         const date = "2024-02-07"; // The date for the stats update
@@ -204,5 +214,7 @@ permalink: account
         })
         .catch(error => console.error('Error updating schedule:', error));
     }
+
+    
 </script>
 
