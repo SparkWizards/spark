@@ -4,56 +4,49 @@ title: Chat
 permalink: chat
 ---
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Feature</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<meta charset="UTF-8"> 
+<link rel="stylesheet" type="text/css" href="assets/css/chat.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Chat App</title>
 </head>
 <body>
-    <h1>Chat Feature</h1>
-    
-    <div id="chat-messages">
-        <!-- Messages will be displayed here -->
+<section class="user">
+ <span class="personname" onmouseover="this.style.background='yellow';" 
+    onmouseout="this.style.background='white';" onclick="setChatWith('Shaurya')">Shaurya</span><br><br>
+ <span class="personname"  onmouseover="this.style.background='yellow';" 
+    onmouseout="this.style.background='white';" onclick="setChatWith('Parav')">Parav</span><br><br>
+ <span class="personname" onmouseover="this.style.background='yellow';" 
+    onmouseout="this.style.background='white';" onclick="setChatWith('Krishiv')">Krishiv</span>
+</section>
+<section class="msger">
+  <header class="msger-header">
+    <div class="msger-header-title">
+      <i class="fa fa-comment"></i> <span id="person"></span>
     </div>
+    <div class="msger-header-options">
+      <span>Chat With: 
+      	<select id="chatwith" onchange="readMessages()">
+      		<option value="">Select...</option>
+      	</select>
+      </span>
+      <span id="refresh_chat_history" style="cursor: pointer;"><i class="fa fa-refresh" title="Refresh"></i></span>
+      <span style="width: 10px;display: inline-block;">&nbsp;</span>
+      <span id="clear_chat_hist" style="cursor: pointer;"><i class="fa fa-eraser" title="Erase Chat History"></i></span>
+    </div>
+  </header>
 
-    <form id="chat-form">
-        <input type="email" id="email" placeholder="Your email" required><br>
-        <input type="email" id="fromEmail" placeholder="Recipient's email" required><br>
-        <textarea id="message" placeholder="Enter your message" required></textarea><br>
-        <button type="submit">Send</button>
-    </form>
+  <main class="msger-chat">
+    
+  </main>
 
-    <script>
-        $(document).ready(function () {
-            // Function to fetch and display messages
-            function fetchMessages() {
-                $.get("/chat", function (data) {
-                    $("#chat-messages").empty();
-                    data.forEach(function (message) {
-                        $("#chat-messages").append("<p><strong>" + message.fromEmail + ":</strong> " + message.message + "</p>");
-                    });
-                });
-            }
-
-            // Initial fetch
-            fetchMessages();
-
-            // Function to handle form submission
-            $("#chat-form").submit(function (event) {
-                event.preventDefault();
-                var email = $("#email").val();
-                var fromEmail = $("#fromEmail").val();
-                var message = $("#message").val();
-                $.post("/chat", { email: email, fromEmail: fromEmail, message: message }, function (data) {
-                    fetchMessages(); // Refresh messages after sending
-                    // Optionally handle success message or other UI updates
-                });
-            });
-        });
-    </script>
+  <form class="msger-inputarea">
+    <input type="text" class="msger-input" placeholder="Enter your message...">
+    <button type="submit" class="msger-send-btn">Send</button>
+  </form>
+</section>
 </body>
-</html>
+<script type="text/javascript" src="assets/js/chat.js"></script>
+</html> 
