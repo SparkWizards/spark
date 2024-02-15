@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Feature</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Chat Feature</h1>
+    
+    <div id="chat-messages">
+        <!-- Messages will be displayed here -->
+    </div>
+
+    <form id="chat-form">
+        <input type="email" id="email" placeholder="Your email" required><br>
+        <input type="email" id="fromEmail" placeholder="Recipient's email" required><br>
+        <textarea id="message" placeholder="Enter your message" required></textarea><br>
+        <button type="submit">Send</button>
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            // Function to fetch and display messages
+            function fetchMessages() {
+                $.get("/chat", function (data) {
+                    $("#chat-messages").empty();
+                    data.forEach(function (message) {
+                        $("#chat-messages").append("<p><strong>" + message.fromEmail + ":</strong> " + message.message + "</p>");
+                    });
+                });
+            }
+
+            // Initial fetch
+            fetchMessages();
+
+            // Function to handle form submission
+            $("#chat-form").submit(function (event) {
+                event.preventDefault();
+                var email = $("#email").val();
+                var fromEmail = $("#fromEmail").val();
+                var message = $("#message").val();
+                $.post("/chat", { email: email, fromEmail: fromEmail, message: message }, function (data) {
+                    fetchMessages(); // Refresh messages after sending
+                    // Optionally handle success message or other UI updates
+                });
+            });
+        });
+    </script>
+</body>
+</html>
