@@ -4,41 +4,129 @@ title: Chat
 permalink: chat
 ---
 
-<section class="user">
- <span class="personname" onmouseover="this.style.background='yellow';" 
-    onmouseout="this.style.background='white';" onclick="setChatWith('Shaurya')">Shaurya</span><br><br>
- <span class="personname"  onmouseover="this.style.background='yellow';" 
-    onmouseout="this.style.background='white';" onclick="setChatWith('Parav')">Parav</span><br><br>
- <span class="personname" onmouseover="this.style.background='yellow';" 
-    onmouseout="this.style.background='white';" onclick="setChatWith('Krishiv')">Krishiv</span>
-</section>
-<section class="msger">
-  <header class="msger-header">
-    <div class="msger-header-title">
-      <i class="fa fa-comment"></i> <span id="person"></span>
-    </div>
-    <div class="msger-header-options">
-      <span>Chat With: 
-      	<select id="chatwith" onchange="readMessages()">
-      		<option value="">Select...</option>
-      	</select>
-      </span>
-      <span id="refresh_chat_history" style="cursor: pointer;"><i class="fa fa-refresh" title="Refresh"></i></span>
-      <span style="width: 10px;display: inline-block;">&nbsp;</span>
-      <span id="clear_chat_hist" style="cursor: pointer;"><i class="fa fa-eraser" title="Erase Chat History"></i></span>
-    </div>
-  </header>
 
-  <main class="msger-chat">
-    
-  </main>
 
-  <form class="msger-inputarea">
-    <input type="text" class="msger-input" placeholder="Enter your message...">
-    <button type="submit" class="msger-send-btn">Send</button>
-  </form>
-</section>
+<div class="student-profile py-4">
+    <div class="container">
+        <div class="row">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    
+                        <span class="personname" onmouseover="this.style.background='yellow';" 
+                           onmouseout="this.style.background='white';" onclick="setChatWith('Shaurya')">Shaurya</span><br><br>
+                        <span class="personname"  onmouseover="this.style.background='yellow';" 
+                           onmouseout="this.style.background='white';" onclick="setChatWith('Parav')">Parav</span><br><br>
+                        <span class="personname" onmouseover="this.style.background='yellow';" 
+                           onmouseout="this.style.background='white';" onclick="setChatWith('Krishiv')">Krishiv</span>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-transparent border-0">
+                    <h3 class="mb-0"></i>General Information</h3>
+                </div>
+                <div class="card-body pt-0">
+                    <section class="msger">
+                        <header class="msger-header">
+                          <div class="msger-header-title">
+                            <i class="fa fa-comment"></i> <span id="person"></span>
+                          </div>
+                          <div class="msger-header-options">
+                            <span>Chat With: 
+                                <select id="chatwith" onchange="readMessages()">
+                                    <option value="">Select...</option>
+                                </select>
+                            </span>
+                            <span id="refresh_chat_history" style="cursor: pointer;"><i class="fa fa-refresh" title="Refresh"></i></span>
+                            <span style="width: 10px;display: inline-block;">&nbsp;</span>
+                            <span id="clear_chat_hist" style="cursor: pointer;"><i class="fa fa-eraser" title="Erase Chat History"></i></span>
+                          </div>
+                        </header>
+                      
+                        <main class="msger-chat">
+                          
+                        </main>
+                      
+                        <form class="msger-inputarea">
+                          <input type="text" class="msger-input" placeholder="Enter your message...">
+                          <button type="submit" class="msger-send-btn">Send</button>
+                        </form>
+                      </section>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script type="text/javascript" src="assets/js/chat.js"></script>
 <link rel="stylesheet" type="text/css" href="assets/css/chat.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body {
+        background: #67B26F; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to top, #CC5500, #000);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        padding: 0;
+        margin: 0;
+        font-family: 'Lato', sans-serif;
+        color: #000;
+    }
 
+    .student-profile .card {
+        border-radius: 10px;
+    }
+
+    .student-profile .card .card-header .profile_img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        margin: 10px auto;
+        border: 10px solid #ccc;
+        border-radius: 50%;
+    }
+
+    .student-profile .card h3 {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .student-profile .card p {
+        font-size: 16px;
+        color: #fff;
+    }
+
+    .student-profile .table th,
+    .student-profile .table td {
+        font-size: 14px;
+        padding: 5px 10px;
+        color: #000;
+    }
+
+    h1,
+    p,
+    h3,
+    table {
+        text-align: center;
+    }
+
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    th,
+    td {
+        background: linear-gradient(to center, #CC5500, #000)
+    }
+    div.container{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
