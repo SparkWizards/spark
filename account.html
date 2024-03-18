@@ -9,11 +9,10 @@ permalink: account
         <div class="row">
             <div class="card shadow-sm">
                 <div class="card-header bg-transparent text-center">
-                    <h1 value="name">Nikola Tesla</h1>
+                    <h1 id="studentName" value="name">John Mortensen</h1>
                 </div>
                 <div class="card-body">
-                    <p class="mb-0"><strong class="pr-1">Student ID:</strong></p><p>23</p>
-                    <p class="mb-0"><strong class="pr-1">Grade Level:</strong></p><p id="grade"></p>
+                    <p class="mb-0"><strong class="pr-1">Student ID:</strong></p><p id="id">1900002</p>
                 </div>
             </div>
         </div>
@@ -170,17 +169,30 @@ permalink: account
 </style>
 
 <script>
-    
-    fetch('http://localhost:8098/api/person/23')
+// Fetch the JWT token from the cookie
+const jwtCookie = document.cookie.split('; ').find(row => row.startsWith('jwt='));
+
+if (jwtCookie) {
+    const jwtToken = jwtCookie.split('=')[1];
+
+    // Fetch user profile data with JWT authentication
+    fetch('http://localhost:8098/api/person/1900002', {
+        headers: {
+            'Authorization': `Bearer ${jwtToken}`
+        }
+    })
     .then(response => response.json())
     .then(data => {
-        // Extract the grade value
-        const grade = data.grade;
-        // Update the HTML element with the fetched grade
-        document.getElementById('grade').textContent = grade;
+        // Extract the name and ID from the data
+        const name = data.name;
+        const id = data.id;
+        // Update the HTML elements with the fetched data
+        document.querySelector('.student-profile #id').textContent = id;
+        document.getElementById('name').textContent = name;
     })
     .catch(error => console.error('Error fetching user data:', error));
-    
+
+    // Function to submit schedule data with JWT authentication
     function submitSchedule() {
         const id = "23"; // The ID of the person you want to update
         const date = "2024-02-07"; // The date for the stats update
@@ -200,10 +212,12 @@ permalink: account
             period5: period5
         };
 
+        // Submit schedule data with JWT authentication
         fetch('http://localhost:8098/api/person/setStats', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwtToken}`
             },
             body: JSON.stringify(stats)
         })
@@ -214,7 +228,9 @@ permalink: account
         })
         .catch(error => console.error('Error updating schedule:', error));
     }
+} else {
+    console.error('JWT cookie not found.');
+}
 
-    
 </script>
 
