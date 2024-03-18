@@ -8,7 +8,7 @@ const refreshChat = getById("refresh_chat_history");
 
 
 const PERSON_EMAILS = ["Krishiv", "Parav", "Shaurya"];
-const chatReadUrl = "http://localhost:8098/chat/read?email=Shaurya&fromEmail=Parav";
+const chatReadUrl = "http://localhost:8098/chat/read";
 const chatHistUrl = "http://localhost:8098/chat/history";
 const chatClearUrl = "http://localhost:8098/chat/history/clear"
 const chatPostUrl = "http://localhost:8098/chat/create";
@@ -20,6 +20,35 @@ const BOT_NAME = "BOT";
 let PERSON_EMAIL = "";
 let FROM_EMAIL = "";
 
+let intervalId = "";
+
+function stopCheckingMessages(){
+	clearInterval(intervalId);
+}
+
+async function readNextMessage(){
+	console.log("email: " + PERSON_EMAIL);
+	console.log("fromEmail: " + FROM_EMAIL);
+	let url = chatReadUrl + "?email=" + PERSON_EMAIL + "&fromEmail=" + FROM_EMAIL;
+	const messages = await getData(url);
+	console.log(messages);
+
+	const messagesJSON = JSON.parse(messages);
+
+	console.log(messagesJSON);
+	for (var i = 0; i < messagesJSON.length; i++) {
+		const messageTemp = messagesJSON[i];
+		const aMessage = messageTemp.message;
+		const sender = messageTemp.fromEmail;
+		if (sender == FROM_EMAIL) {
+			appendMessage(sender, PERSON_IMG, "left", aMessage, "read");
+		} else {
+			appendMessage(sender, PERSON_IMG, "right", aMessage, "sent");
+		}
+	}
+}
+
+// invoked by refresh button and also when user select a person to chat with
 async function readMessages() {
 	console.log("email: " + PERSON_EMAIL);
 	msgerChat.innerHTML="";
@@ -42,6 +71,10 @@ async function readMessages() {
 			appendMessage(sender, PERSON_IMG, "right", aMessage, "sent");
 		}
 	}
+
+	intervalId = setInterval(function() {
+		readNextMessage()
+	  }, 1000);
 }
 function setChatWith(person) {
 	msgerChat.innerHTML="";
@@ -240,5 +273,3 @@ async function deleteData(url = "") {
 
 	return response; // parses JSON response into native JavaScript objects
 }
-
-
